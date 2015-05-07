@@ -1,0 +1,122 @@
+<<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+        <div class="container">
+            <h1 style="text-align:center;">Лабораторная работа №2</h1>
+
+            <h2>Type</h2>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>id</th>
+                  <th>type</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for types in type %}
+                        <tr>
+                            <th scope="row">{{types.id}}</th>
+                            <td>{{types.type}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <h2>Name_equip</h2>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>id</th>
+                  <th>name</th>
+                    <th>type</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for names in name_equip %}
+                        <tr>
+                            <th scope="row">{{names.id}}</th>
+                            <td>{{names.name}}</td>
+                            <td>{{names.type.type}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <h2>auditors</h2>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                  <th>Auditors</th>
+                    <th>Build</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for audit in auditors %}
+                        <tr>
+                            <th scope="row">{{audit.id}}</th>
+                            <td>{{audit.number}}</td>
+                            <td>{{audit.build}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <h2>Equip</h2>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                  <th>Name</th>
+                    <th>Date_create</th>
+                    <th>Characters</th>
+                    <th>Condition_informations</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for eq in equip %}
+                        <tr>
+                            <th scope="row">{{eq.id}}</th>
+                            <td>{{eq.name.name}}</td>
+                            <td>{{eq.date_buy}}</td>
+                            <td>{{eq.characters}}</td>
+                            <td>{{eq.condition_inf}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <h2>Location</h2>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                  <th>Id_equip</th>
+                    <th>Id_auditors</th>
+                    <th>Date_Location</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for loc in location %}
+                        <tr>
+                            <th scope="row">{{loc.id}}</th>
+                            <td>{{loc.id_equip}}</td>
+                            <td>{{loc.id_auditor}}</td>
+                            <td>{{loc.date_loc}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+
+
+        </div>
+	</body>
+</html>
