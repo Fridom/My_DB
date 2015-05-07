@@ -12,6 +12,9 @@
             <h1 style="text-align:center;">Лабораторная работа №2</h1>
 
             <h2>Type</h2>
+            <h4>Create_new_type</h4>
+            <form action=index.php method=post>
+            Type <input type=text name="Type" size=15 height=100% >
             <table class="table table-striped">
                 <thead>
                 <tr>
@@ -30,6 +33,9 @@
             </table>
 
             <h2>Name_equip</h2>
+                <h4>Create_new_Name_equip</h4>
+                Name <input type=text name="Name" size=15 height=100% >
+                Type_id <input type=text name="Type_id" size=15 height=100% >
             <table class="table table-striped">
                 <thead>
                 <tr>
@@ -49,12 +55,15 @@
                 </tbody>
             </table>
 
-            <h2>auditors</h2>
+            <h2>Auditories</h2>
+                <h4>Create_new_Auditories</h4>
+                Auditories <input type=text name="Number" size=15 height=100% >
+                Build <input type=text name="Build" size=15 height=100% >
             <table class="table table-striped">
                 <thead>
                 <tr>
                     <th>Id</th>
-                  <th>Auditors</th>
+                  <th>Auditories</th>
                     <th>Build</th>
                 </tr>
                 </thead>
@@ -70,12 +79,17 @@
             </table>
 
             <h2>Equip</h2>
+                <h4>Create_new_Equip</h4>
+                Name_id <input type=text name="Name_id" size=15 height=100% >
+                Date_buy(2015, 5, 30) <input type=text name="Date_buy" size=15 height=100% >
+                Characters <input type=text name="Characters" size=15 height=100% >
+                Condition_information <input type=text name="Condition_inf" size=15 height=100% >
             <table class="table table-striped">
                 <thead>
                 <tr>
                     <th>Id</th>
                   <th>Name</th>
-                    <th>Date_create</th>
+                    <th>Date_buy</th>
                     <th>Characters</th>
                     <th>Condition_informations</th>
                 </tr>
@@ -94,6 +108,10 @@
             </table>
 
             <h2>Location</h2>
+                Id_equip <input type=text name="Id_equip" size=15 height=100% >
+                Id_auditories <input type=text name="Id_auditor" size=15 height=100% >
+                Date_location(2015, 5, 30) <input type=text name="Date_loc" size=15 height=100% >
+
             <table class="table table-striped">
                 <thead>
                 <tr>
