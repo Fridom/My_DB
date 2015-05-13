@@ -13,8 +13,12 @@
 
             <h2>Type</h2>
             <h4>Create_new_type</h4>
-            <form action=index.php method=post>
-            Type <input type=text name="Type" size=15 height=100% >
+            <form action='/type/' method=post>
+            Type <input type=text name="type" size=15 height=100% >
+                {% csrf_token %}
+
+                <input type="submit"/>
+                </form>
             <table class="table table-striped">
                 <thead>
                 <tr>
@@ -34,8 +38,10 @@
 
             <h2>Name_equip</h2>
                 <h4>Create_new_Name_equip</h4>
+            <form action="/name" method=post>
                 Name <input type=text name="Name" size=15 height=100% >
                 Type_id <input type=text name="Type_id" size=15 height=100% >
+                </form>
             <table class="table table-striped">
                 <thead>
                 <tr>

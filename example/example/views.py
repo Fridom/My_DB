@@ -1,7 +1,16 @@
 # -*- coding: utf-8 -*-
-from django.views.generic.base import TemplateView
+from django.views.generic.base import TemplateView, View
+from django.shortcuts import redirect
 from models import Type, NameEquip, Auditors, EqList, Locati
 from django.contrib import admin
+
+class TypeView(View):
+    template_name = "index.html"
+
+    def post(self, *args, **kwargs):
+        type_value = self.request.POST['type']
+        Type.objects.create(type=type_value)
+        return redirect('/')
 
 
 type_list = Type.objects.all()

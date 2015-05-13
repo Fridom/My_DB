@@ -32,3 +32,4 @@ class Locati(models.Model):
 #Auditors.objects.create(number=411, build='ULK')
 #EqList.objects.create(name = NameEquip.objects.filter(id=1)[0], date_buy = timezone.now(), characters = 'My_Characters', condition_inf = 'My_condition')
 #Locati.objects.create(id_equip=EqList.objects.all()[0], id_auditor=Auditors.objects.all()[0], date_loc= timezone.now())
+

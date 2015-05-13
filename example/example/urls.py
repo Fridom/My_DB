@@ -2,7 +2,7 @@ from django.conf.urls import patterns, url
 
 from django.contrib import admin
 
-from views import IndexView
+from views import IndexView, TypeView
 
 urlpatterns = patterns('',
     # Examples:
@@ -10,4 +10,5 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^$', IndexView.as_view()),
+   url(r'^type', TypeView.as_view()),
     )
