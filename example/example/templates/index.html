@@ -95,10 +95,10 @@
             <h2>Equip</h2>
                 <h4>Create_new_Equip</h4>
             <form action="/equip/" method=post>
-                Name_id <input type=text name="Name_id" size=15 height=100% >
-                Date_buy(2015, 5, 30) <input type=text name="Date_buy" size=15 height=100% >
-                Characters <input type=text name="Characters" size=15 height=100% >
-                Condition_information <input type=text name="Condition_inf" size=15 height=100% >
+                Name_id <input type=text name="name_id" size=15 height=100% >
+                Date_buy(2015, 5, 30) <input type=text name="date_buy" size=15 height=100% >
+                Characters <input type=text name="characters" size=15 height=100% >
+                Condition_information <input type=text name="condition_inf" size=15 height=100% >
                 {% csrf_token %}
 
                 <input type="submit"/>
@@ -128,9 +128,9 @@
 
             <h2>Location</h2>
                 <form action="/location/" method=post>
-                Id_equip <input type=text name="Id_equip" size=15 height=100% >
-                Id_auditories <input type=text name="Id_auditor" size=15 height=100% >
-                Date_location(2015, 5, 30) <input type=text name="Date_loc" size=15 height=100% >
+                Id_equip <input type=text name="id_equip" size=15 height=100% >
+                Id_auditories <input type=text name="id_auditor" size=15 height=100% >
+                Date_location(2015, 5, 30) <input type=text name="date_loc" size=15 height=100% >
                 {% csrf_token %}
 
                 <input type="submit"/>

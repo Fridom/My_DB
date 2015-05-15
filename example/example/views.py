@@ -34,14 +34,22 @@ class EquipView(View):
     template_name = "index.html"
 
     def post(self, *args, **kwargs):
-
+        name_value = self.request.POST['name_id']
+        date_buy_value = self.request.POST['date_buy']
+        characters_value = self.request.POST['characters']
+        condition_inf_value = self.request.POST['condition_inf']
+        EqList.objects.create(name=NameEquip.objects.filter(id=int(name_value))[0], date_buy=date_buy_value, characters=characters_value, condition_inf=condition_inf_value)
+        return redirect('/')
 
 class LocationView(View):
     template_name = "index.html"
 
     def post(self, *args, **kwargs):
-
-
+        id_equip_value = self.request.POST['id_equip']
+        id_auditor_value = self.request.POST['id_auditor']
+        date_loc_value = self.request.POST['date_loc']
+        Locati.objects.create(id_equip=EqList.objects.filter(id=int(id_equip_value))[0], id_auditor=Auditors.objects.filter(id=int(id_auditor_value))[0], date_loc=date_loc_value)
+        return redirect('/')
 
 
 type_list = Type.objects.all()
