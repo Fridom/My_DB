@@ -38,9 +38,12 @@
 
             <h2>Name_equip</h2>
                 <h4>Create_new_Name_equip</h4>
-            <form action="/name" method=post>
-                Name <input type=text name="Name" size=15 height=100% >
-                Type_id <input type=text name="Type_id" size=15 height=100% >
+            <form action="/name/" method=post>
+                Name <input type=text name="name" size=15 height=100% >
+                Type_id <input type=text name="type_id" size=15 height=100% >
+                {% csrf_token %}
+
+                <input type="submit"/>
                 </form>
             <table class="table table-striped">
                 <thead>
@@ -63,8 +66,13 @@
 
             <h2>Auditories</h2>
                 <h4>Create_new_Auditories</h4>
-                Auditories <input type=text name="Number" size=15 height=100% >
-                Build <input type=text name="Build" size=15 height=100% >
+            <form action="/auditories/" method=post>
+                Auditories <input type=text name="number" size=15 height=100% >
+                Build <input type=text name="build" size=15 height=100% >
+                {% csrf_token %}
+
+                <input type="submit"/>
+                </form>
             <table class="table table-striped">
                 <thead>
                 <tr>
@@ -86,10 +94,15 @@
 
             <h2>Equip</h2>
                 <h4>Create_new_Equip</h4>
+            <form action="/equip/" method=post>
                 Name_id <input type=text name="Name_id" size=15 height=100% >
                 Date_buy(2015, 5, 30) <input type=text name="Date_buy" size=15 height=100% >
                 Characters <input type=text name="Characters" size=15 height=100% >
                 Condition_information <input type=text name="Condition_inf" size=15 height=100% >
+                {% csrf_token %}
+
+                <input type="submit"/>
+                </form>
             <table class="table table-striped">
                 <thead>
                 <tr>
@@ -114,10 +127,14 @@
             </table>
 
             <h2>Location</h2>
+                <form action="/location/" method=post>
                 Id_equip <input type=text name="Id_equip" size=15 height=100% >
                 Id_auditories <input type=text name="Id_auditor" size=15 height=100% >
                 Date_location(2015, 5, 30) <input type=text name="Date_loc" size=15 height=100% >
+                {% csrf_token %}
 
+                <input type="submit"/>
+                </form>
             <table class="table table-striped">
                 <thead>
                 <tr>

@@ -12,6 +12,37 @@ class TypeView(View):
         Type.objects.create(type=type_value)
         return redirect('/')
 
+class NameView(View):
+    template_name = "index.html"
+
+    def post(self, *args, **kwargs):
+        name_value = self.request.POST['name']
+        type_id_value = self.request.POST['type_id']
+        NameEquip.objects.create(name=name_value,type=Type.objects.filter(id=int(type_id_value))[0])
+        return redirect('/')
+
+class AuditoriesView(View):
+    template_name = "index.html"
+
+    def post(self, *args, **kwargs):
+        number_value = self.request.POST['number']
+        build_value = self.request.POST['build']
+        Auditors.objects.create(number=int(number_value), build=build_value)
+        return redirect('/')
+
+class EquipView(View):
+    template_name = "index.html"
+
+    def post(self, *args, **kwargs):
+
+
+class LocationView(View):
+    template_name = "index.html"
+
+    def post(self, *args, **kwargs):
+
+
+
 
 type_list = Type.objects.all()
 name_equip_list = NameEquip.objects.all()
