@@ -148,8 +148,8 @@
                     {% for loc in location %}
                         <tr>
                             <th scope="row">{{loc.id}}</th>
-                            <td>{{loc.id_equip}}</td>
-                            <td>{{loc.id_auditor}}</td>
+                            <td>{{loc.id_equip.id}}</td>
+                            <td>{{loc.id_auditor.id}}</td>
                             <td>{{loc.date_loc}}</td>
                         </tr>
                     {% endfor %}
