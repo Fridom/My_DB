@@ -107,6 +107,10 @@
                             <th scope="row">{{audit.id}}</th>
                             <td>{{audit.number}}</td>
                             <td>{{audit.build}}</td>
+                            <td><form action='/delete_audit/' method=post>
+                                 {% csrf_token %}
+                                  <button name="delete_audit" value="{{audit.id}}">Удалить</button>
+                                 </form></td>
                         </tr>
                     {% endfor %}
                 </tbody>
@@ -150,6 +154,10 @@
                             <td>{{eq.date_buy}}</td>
                             <td>{{eq.characters}}</td>
                             <td>{{eq.condition_inf}}</td>
+                             <td><form action='/delete_eq/' method=post>
+                                 {% csrf_token %}
+                                  <button name="delete_eq" value="{{eq.id}}">Удалить</button>
+                                 </form></td>
                         </tr>
                     {% endfor %}
                 </tbody>
@@ -180,8 +188,9 @@
                 <thead>
                 <tr>
                     <th>Id</th>
-                  <th>ID обторудования</th>
-                    <th>ID аудитории</th>
+                  <th>Обторудование</th>
+                    <th>Дата покупки</th>
+                    <th>Аудитория</th>
                     <th>Дата расположения</th>
                 </tr>
                 </thead>
@@ -189,9 +198,14 @@
                     {% for loc in location %}
                         <tr>
                             <th scope="row">{{loc.id}}</th>
-                            <td>{{loc.id_equip.id}}</td>
-                            <td>{{loc.id_auditor.id}}</td>
+                            <td>{{loc.id_equip.name.name}}</td>
+                            <td>{{loc.id_equip.date_buy}}</td>
+                            <td>{{loc.id_auditor.number}} {{loc.id_auditor.build}}</td>
                             <td>{{loc.date_loc}}</td>
+                            <td><form action='/delete_loc/' method=post>
+                                 {% csrf_token %}
+                                  <button name="delete_loc" value="{{loc.id}}">Удалить</button>
+                                 </form></td>
                         </tr>
                     {% endfor %}
                 </tbody>

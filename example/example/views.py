@@ -47,6 +47,14 @@ class AuditoriesView(View):
         Auditors.objects.create(number=int(number_value), build=build_value)
         return redirect('/')
 
+class DeleteAudit(View):
+    temlate_name = "index.html"
+
+    def post(self, *args, **kwargs):
+        audit_delete = self.request.POST['delete_audit']
+        Auditors.objects.filter(id=int(audit_delete)).delete()
+        return redirect('/')
+
 class EquipView(View):
     template_name = "index.html"
 
@@ -56,6 +64,14 @@ class EquipView(View):
         characters_value = self.request.POST['characters']
         condition_inf_value = self.request.POST['condition_inf']
         EqList.objects.create(name=NameEquip.objects.filter(id=int(name_value))[0], date_buy=date_buy_value, characters=characters_value, condition_inf=condition_inf_value)
+        return redirect('/')
+
+class DeleteEquip(View):
+    temlate_name = "index.html"
+
+    def post(self, *args, **kwargs):
+        equip_delete = self.request.POST['delete_eq']
+        EqList.objects.filter(id=int(equip_delete)).delete()
         return redirect('/')
 
 class LocationView(View):
@@ -68,6 +84,13 @@ class LocationView(View):
         Locati.objects.create(id_equip=EqList.objects.filter(id=int(id_equip_value))[0], id_auditor=Auditors.objects.filter(id=int(id_auditor_value))[0], date_loc=date_loc_value)
         return redirect('/')
 
+class DeleteLocate(View):
+    temlate_name = "index.html"
+
+    def post(self, *args, **kwargs):
+        locate_delete = self.request.POST['delete_loc']
+        Locati.objects.filter(id=int(locate_delete)).delete()
+        return redirect('/')
 
 class IndexView(TemplateView):
     template_name = "index.html"

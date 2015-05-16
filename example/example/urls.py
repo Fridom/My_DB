@@ -2,7 +2,7 @@ from django.conf.urls import patterns, url
 
 from django.contrib import admin
 
-from views import IndexView, TypeView, NameView, AuditoriesView, EquipView, LocationView, DeleteType, DeleteName
+from views import IndexView, TypeView, NameView, AuditoriesView, EquipView, LocationView, DeleteType, DeleteName, DeleteAudit, DeleteEquip, DeleteLocate
 
 urlpatterns = patterns('',
     # Examples:
@@ -17,5 +17,7 @@ urlpatterns = patterns('',
    url(r'^location', LocationView.as_view()),
    url(r'^delete_type', DeleteType.as_view()),
    url(r'^delete_name', DeleteName.as_view()),
-
-    )
+   url(r'^delete_audit', DeleteAudit.as_view()),
+   url(r'^delete_eq', DeleteEquip.as_view()),
+   url(r'^delete_loc', DeleteLocate.as_view()),
+        )
