@@ -6,15 +6,22 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <!--<style>-->
+   <!--body {-->
+    <!--background-image: url("http://173ng.com/data/attachment/forum/201402/22/090325jup6c6lwqknw2bhp.jpg");-->
+   <!--}-->
+  <!--</style>-->
 	</head>
 	<body>
         <div class="container">
             <h1 style="text-align:center;">Лабораторная работа №2</h1>
 
-            <h2>Type</h2>
-            <h4>Create_new_type</h4>
+            <h2>Тип</h2>
+            <h4>Создать новый тип</h4>
             <form action='/type/' method=post>
-            Type <input type=text name="type" size=15 height=100% >
+            Тип <input type=text name="type" size=15 height=100% >
+
+            </select>
                 {% csrf_token %}
 
                 <input type="submit"/>
@@ -23,7 +30,7 @@
                 <thead>
                 <tr>
                     <th>id</th>
-                  <th>type</th>
+                  <th>Тип</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -31,16 +38,25 @@
                         <tr>
                             <th scope="row">{{types.id}}</th>
                             <td>{{types.type}}</td>
+                             <td><form action='/delete_type/' method=post>
+                                 {% csrf_token %}
+                                  <button name="delete_type" value="{{types.id}}">Удалить</button>
+                                 </form></td>
                         </tr>
                     {% endfor %}
                 </tbody>
             </table>
 
-            <h2>Name_equip</h2>
-                <h4>Create_new_Name_equip</h4>
+            <h2>Название оборудования</h2>
+                <h4>Создать новое название</h4>
             <form action="/name/" method=post>
-                Name <input type=text name="name" size=15 height=100% >
-                Type_id <input type=text name="type_id" size=15 height=100% >
+                Название <input type=text name="name" size=15 height=100% >
+                Id Типа <select name="type_id" class="selectpicker">
+                    {% for type in type %}
+                <option value="{{type.id}}">{{type.type}}</option>
+
+                    {% endfor %}
+                </select>
                 {% csrf_token %}
 
                 <input type="submit"/>
@@ -49,8 +65,8 @@
                 <thead>
                 <tr>
                     <th>id</th>
-                  <th>name</th>
-                    <th>type</th>
+                  <th>Название</th>
+                    <th>Тип</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -59,16 +75,20 @@
                             <th scope="row">{{names.id}}</th>
                             <td>{{names.name}}</td>
                             <td>{{names.type.type}}</td>
+                            <td><form action='/delete_name/' method=post>
+                                 {% csrf_token %}
+                                  <button name="delete_name" value="{{name.id}}">Удалить</button>
+                                 </form></td>
                         </tr>
                     {% endfor %}
                 </tbody>
             </table>
 
-            <h2>Auditories</h2>
-                <h4>Create_new_Auditories</h4>
+            <h2>Список аудиторий</h2>
+                <h4>Создать аудиторию</h4>
             <form action="/auditories/" method=post>
-                Auditories <input type=text name="number" size=15 height=100% >
-                Build <input type=text name="build" size=15 height=100% >
+                Номер аудитории <input type=text name="number" size=15 height=100% >
+                Корпус <input type=text name="build" size=15 height=100% >
                 {% csrf_token %}
 
                 <input type="submit"/>
@@ -77,8 +97,8 @@
                 <thead>
                 <tr>
                     <th>Id</th>
-                  <th>Auditories</th>
-                    <th>Build</th>
+                  <th>Номер аудитории</th>
+                    <th>Корпус</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -92,13 +112,22 @@
                 </tbody>
             </table>
 
-            <h2>Equip</h2>
-                <h4>Create_new_Equip</h4>
+            <h2>Список оборудования</h2>
+                <h4>Создать новое оборудование</h4>
             <form action="/equip/" method=post>
-                Name_id <input type=text name="name_id" size=15 height=100% >
-                Date_buy(2015, 5, 30) <input type=text name="date_buy" size=15 height=100% >
-                Characters <input type=text name="characters" size=15 height=100% >
-                Condition_information <input type=text name="condition_inf" size=15 height=100% >
+                Названия <select name="name_id" class="selectpicker">
+                    {% for type in name_equip %}
+                <option value="{{type.id}}">{{type.name}}</option>
+
+                    {% endfor %}
+                </select>
+
+                <!--<div class="bfh-datepicker" data-format="y-m-d">-->
+                Дата покупки(в формате: "2015, 5, 30") <input type=text name="date_buy" size=15 height=80% >
+                    <!--</div>-->
+
+                Характеристики <input type=text name="characters" size=15 height=80% > <br>
+                Информация состояния <input type=text name="condition_inf" size=15 height=80% >
                 {% csrf_token %}
 
                 <input type="submit"/>
@@ -107,10 +136,10 @@
                 <thead>
                 <tr>
                     <th>Id</th>
-                  <th>Name</th>
-                    <th>Date_buy</th>
-                    <th>Characters</th>
-                    <th>Condition_informations</th>
+                  <th>Название</th>
+                    <th>Дата покупки</th>
+                    <th>Характеристики</th>
+                    <th>Информация состояния</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -126,11 +155,23 @@
                 </tbody>
             </table>
 
-            <h2>Location</h2>
+            <h2>Расположение</h2>
                 <form action="/location/" method=post>
-                Id_equip <input type=text name="id_equip" size=15 height=100% >
-                Id_auditories <input type=text name="id_auditor" size=15 height=100% >
-                Date_location(2015, 5, 30) <input type=text name="date_loc" size=15 height=100% >
+                Оборудование <select name="id_equip" class="selectpicker">
+                    {% for type in equip %}
+                <option value="{{type.id}}">{{type.name.name}} {{type.date_buy}}</option>
+
+                    {% endfor %}
+                </select>
+
+                Аудитории <select name="id_auditor" class="selectpicker">
+                    {% for type in auditors %}
+                <option value="{{type.id}}">{{type.number}} {{type.build}}</option>
+
+                    {% endfor %}
+                </select>
+
+                Дата установки (в формате: "2015, 5, 30") <input type=text name="date_loc" size=15 height=100% >
                 {% csrf_token %}
 
                 <input type="submit"/>
@@ -139,9 +180,9 @@
                 <thead>
                 <tr>
                     <th>Id</th>
-                  <th>Id_equip</th>
-                    <th>Id_auditors</th>
-                    <th>Date_Location</th>
+                  <th>ID обторудования</th>
+                    <th>ID аудитории</th>
+                    <th>Дата расположения</th>
                 </tr>
                 </thead>
                 <tbody>

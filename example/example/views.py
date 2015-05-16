@@ -12,13 +12,30 @@ class TypeView(View):
         Type.objects.create(type=type_value)
         return redirect('/')
 
+class DeleteType(View):
+    temlate_name = "index.html"
+
+    def post(self, *args, **kwargs):
+        type_delete = self.request.POST['delete_type']
+        Type.objects.filter(id=int(type_delete)).delete()
+        return redirect('/')
+
 class NameView(View):
     template_name = "index.html"
 
     def post(self, *args, **kwargs):
-        name_value = self.request.POST['name']
-        type_id_value = self.request.POST['type_id']
-        NameEquip.objects.create(name=name_value,type=Type.objects.filter(id=int(type_id_value))[0])
+
+            name_value = self.request.POST['name']
+            type_id_value = self.request.POST['type_id']
+            NameEquip.objects.create(name=name_value,type=Type.objects.filter(id=int(type_id_value))[0])
+            return redirect('/')
+
+class DeleteName(View):
+    temlate_name = "index.html"
+
+    def post(self, *args, **kwargs):
+        name_delete = self.request.POST['delete_name']
+        NameEquip.objects.filter(id=int(name_delete)).delete()
         return redirect('/')
 
 class AuditoriesView(View):
@@ -52,26 +69,23 @@ class LocationView(View):
         return redirect('/')
 
 
-type_list = Type.objects.all()
-name_equip_list = NameEquip.objects.all()
-auditors_list = Auditors.objects.all()
-equip_list = EqList.objects.all()
-location_list = Locati.objects.all()
-
-
-
 class IndexView(TemplateView):
     template_name = "index.html"
 
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
+        type_list = Type.objects.all()
+        name_equip_list = NameEquip.objects.all()
+        auditors_list = Auditors.objects.all()
+        equip_list = EqList.objects.all()
+        location_list = Locati.objects.all()
         context.update(
-            {
-                'type': type_list,
-                'name_equip': name_equip_list,
-                'auditors': auditors_list,
-                'equip': equip_list,
-                'location': location_list
-            }
-        )
+                {
+                    'type': type_list,
+                    'name_equip': name_equip_list,
+                    'auditors': auditors_list,
+                    'equip': equip_list,
+                    'location': location_list
+                }
+            )
         return context

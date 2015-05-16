@@ -77,11 +77,11 @@ WSGI_APPLICATION = 'example.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'ohskcvmh'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'ohskcvmh',
         'USER': "ohskcvmh",
         'PASSWORD': "Z0SKHy9kJbi3_fMyxExobLcLt7bYO8aa",
-        'HOST': 'horton.elephantsql.com' ,
+        'HOST': 'babar.elephantsql.com' ,
         'PORT': '5432'
     }
 }
