@@ -4,21 +4,30 @@ from django.shortcuts import redirect
 from models import Type, NameEquip, Auditors, EqList, Locati
 from django.contrib import admin
 
-class TypeView(View):
-    template_name = "index.html"
+class TypeView(TemplateView, View):
+    template_name = "type.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(TypeView, self).get_context_data(**kwargs)
+        type_list = Type.objects.all()
+        context.update(
+                {
+                    'type': type_list,
+                    })
+        return context
 
     def post(self, *args, **kwargs):
         type_value = self.request.POST['type']
         Type.objects.create(type=type_value)
-        return redirect('/')
+        return redirect('/type')
 
 class DeleteType(View):
-    temlate_name = "index.html"
+    temlate_name = "type.html"
 
     def post(self, *args, **kwargs):
         type_delete = self.request.POST['delete_type']
         Type.objects.filter(id=int(type_delete)).delete()
-        return redirect('/')
+        return redirect('/type')
 
 class NameView(View):
     template_name = "index.html"

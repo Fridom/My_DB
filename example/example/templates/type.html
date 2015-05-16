@@ -3,8 +3,42 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </head>
 <body>
+<div class="container">
+        <h2>Тип</h2>
+           <h4>Создать новый тип</h4>
+            <form action='/type/' method=post>
+            Тип <input type=text name="type" size=15 height=100% >
 
+            </select>
+                {% csrf_token %}
+
+                <input type="submit"/>
+                </form>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>id</th>
+                  <th>Тип</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for types in type %}
+                        <tr>
+                            <th scope="row">{{types.id}}</th>
+                            <td>{{types.type}}</td>
+                             <td><form action='/delete_type/' method=post>
+                                 {% csrf_token %}
+                                  <button name="delete_type" value="{{types.id}}">Удалить</button>
+                                 </form></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+    </div>
 </body>
 </html>

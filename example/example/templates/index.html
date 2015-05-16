@@ -6,46 +6,14 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-        <!--<style>-->
-   <!--body {-->
-    <!--background-image: url("http://173ng.com/data/attachment/forum/201402/22/090325jup6c6lwqknw2bhp.jpg");-->
-   <!--}-->
-  <!--</style>-->
+
 	</head>
 	<body>
         <div class="container">
             <h1 style="text-align:center;">Лабораторная работа №2</h1>
 
             <h2>Тип</h2>
-            <h4>Создать новый тип</h4>
-            <form action='/type/' method=post>
-            Тип <input type=text name="type" size=15 height=100% >
-
-            </select>
-                {% csrf_token %}
-
-                <input type="submit"/>
-                </form>
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th>id</th>
-                  <th>Тип</th>
-                </tr>
-                </thead>
-                <tbody>
-                    {% for types in type %}
-                        <tr>
-                            <th scope="row">{{types.id}}</th>
-                            <td>{{types.type}}</td>
-                             <td><form action='/delete_type/' method=post>
-                                 {% csrf_token %}
-                                  <button name="delete_type" value="{{types.id}}">Удалить</button>
-                                 </form></td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+            <a href="/type"><h4>Создать новый тип</h4></a>
 
             <h2>Название оборудования</h2>
                 <h4>Создать новое название</h4>
